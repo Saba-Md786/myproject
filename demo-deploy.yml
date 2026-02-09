@@ -1,0 +1,12 @@
+---
+- name: This playbook is for testing ci-cd 
+  hosts: all
+  become: true
+  tasks:
+    - name: Run nginx container
+      docker_container:
+        name: web
+        image: nginx
+        state: started
+        ports:
+          - "80:80"
